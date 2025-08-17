@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const handleQuest = () => {
     setIsDefaultPanel(false);
     if (inputValue.trim()) {
-      console.log('Quest submitted:', inputValue);
+      // console.log('Quest submitted:', inputValue);
       // 这里可以添加实际的提交逻辑
     }
   };

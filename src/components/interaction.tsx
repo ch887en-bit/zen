@@ -64,7 +64,7 @@ export default function InteractionPage({ title }: { title: string }) {
       ],
     )
     // setIsLoading(false)
-    console.log(res, 'res')
+    // console.log(res, 'res')
     newList = [...list, {
       role: 'zen',
       content: value
