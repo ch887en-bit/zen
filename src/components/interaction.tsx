@@ -6,7 +6,6 @@ import DynamicPromptGenerator from '../train/dynamic_prompt_generator'
 import monkImage from '../assets/images/p2.png'
 
 export default function InteractionPage({ title }: { title: string }) {
-  const [activeDot, setActiveDot] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
   const [list, setList] = useState<any[]>([])
   const [inputValue, setInputValue] = useState('')
@@ -88,7 +87,7 @@ export default function InteractionPage({ title }: { title: string }) {
     <div className="interaction-page">
       {/* 顶部标题和分享按钮 */}
       <div className="page-header">
-        <h1 className="page-title">{title}</h1>
+        <h1 className="page-title">{titleInner}</h1>
         <div className="share-button">
           <span>Share</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

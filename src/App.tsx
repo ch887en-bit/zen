@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Button, Input, Carousel, Select } from 'antd';
-import { SoundOutlined, GlobalOutlined } from '@ant-design/icons';
 import './App.css';
 import InteractionPage from './components/interaction';
 import DefaultPanel from './components/defaultPanel';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { MenuOutlined } from '@ant-design/icons';
 import './H5Navbar.css';
 import { Carousel } from 'antd';
 import MusicPlayer from './MusicPlayer';

@@ -1,10 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { PlayCircleOutlined, PauseCircleOutlined, SoundOutlined } from '@ant-design/icons';
+import React, { useRef, useEffect } from 'react';
+import { SoundOutlined } from '@ant-design/icons';
 import './MusicPlayer.css';
 
 const MusicPlayer: React.FC = () => {
-  const [showControls, setShowControls] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
 
   
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -21,17 +19,6 @@ const MusicPlayer: React.FC = () => {
     // 设置循环播放
     audio.loop = true;
 
-    const handleEnded = () => {
-      // 由于启用了循环播放，这里不需要处理结束事件
-      // 但我们可以重置进度条显示
-      setCurrentTime(0);
-    };
-
-    audio.addEventListener('ended', handleEnded);
-
-    return () => {
-      audio.removeEventListener('ended', handleEnded);
-    };
   }, []);
 
   useEffect(() => {
