@@ -74,9 +74,6 @@
 
 /* 响应式设计 */
 @media (max-width: 800px) {
-  .left-panel {
-    padding: 0;
-  }
   .top-nav {
     display: none;
   }

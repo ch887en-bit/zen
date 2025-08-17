@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0;
   padding-bottom: 32px;
 }
 
@@ -154,6 +154,13 @@
   left: 32px;
   right: 32px;
   bottom: 32px;
+}
+.input-section-container .hint-text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #89837D;
+  margin-top: 10px;
 }
 .monk-image-container img {
   opacity: 0.6;

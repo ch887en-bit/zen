@@ -316,6 +316,8 @@ body {
     width: 100%;
     height: 200px;
     flex: none;
+    padding: 0;
+    background-position: top;
   }
   .right-panel {
     padding: 15px;
