@@ -1,0 +1,21 @@
+.music-player {
+  position: relative;
+  z-index: 1000;
+}
+
+.music-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  color: #333;
+}
+
+.music-control-button:hover {
+  transform: scale(1.1);
+}
+
+

@@ -1,0 +1,198 @@
+/* Interaction Page 样式 */
+.interaction-page {
+  min-height: 100vh;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+/* 页面头部 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  padding-bottom: 32px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  font-family: 'PingFang SC', -apple-system, sans-serif;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.share-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+.share-button svg {
+  transition: transform 0.3s ease;
+}
+
+/* 页面内容布局 */
+.page-content {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-direction: column;
+  height: calc(100vh - 250px);
+  overflow: auto;
+  scroll-behavior: smooth; /* 添加平滑滚动 */
+  padding-right: 10px; /* 为滚动条留出空间 */
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+
+/* 自定义滚动条样式 */
+.page-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.page-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.page-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.page-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+.bubble-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.zen-container {
+  align-items: flex-end;
+}
+.user-container {
+  align-items: flex-start;
+  flex-direction: row;
+}
+.flow-image {
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+.zen-bubble {
+  width: 40%;
+  border: 1px solid #fff;
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+  color: #403429;
+  font-size: 14px;
+  font-weight: 400;
+}
+.user-bubble {
+  width: 50%;
+  border-radius: 16px;
+  padding: 16px;
+  background: #E8E2DC;
+  color: #403429;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.lotus-icon {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  font-size: 2rem;
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #f39c12;
+}
+
+
+
+/* 右侧列 - 交互区域 */
+.right-column {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.monk-image-container {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 400px;
+  opacity: 0.8;
+}
+.input-section-container {
+  position: absolute;
+  z-index: 2;
+  left: 32px;
+  right: 32px;
+  bottom: 32px;
+}
+.monk-image-container img {
+  opacity: 0.6;
+}
+@media (max-width: 800px) {
+  .monk-image-container {
+    display: none;
+  }
+  .page-content {
+    height: calc(100vh - 300px);
+  }
+  .input-section-container {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 2;
+  }
+  .input-section-container .hint-text {
+    display: none;
+  }
+  .input-section-container .monk-illustration {
+    position: absolute;
+    width: 65%;
+    right: -67px;
+    bottom: 28px;
+  }
+  .page-header {
+    display: none;
+  }
+  .interaction-page {
+    min-height: auto;
+  }
+  .interaction-page {
+    padding: 15px;
+  }
+  .user-bubble {
+    width: 70%;
+  }
+}
+
+

@@ -1,46 +1,198 @@
-# Getting Started with Create React App
+# Zen Quest - AI 禅意智慧应用
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个基于 OpenAI API 和 Cloudflare Workers 的禅意智慧对话应用。
 
-## Available Scripts
+## 功能特性
 
-In the project directory, you can run:
+- 🤖 AI 驱动的智慧对话
+- 🎨 DALL-E 3 图片生成
+- 🌐 Cloudflare Workers 部署
+- 📱 响应式设计
+- 🎭 禅意主题界面
 
-### `npm start`
+## 技术栈
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **前端**: React + TypeScript + Ant Design
+- **后端**: Cloudflare Workers
+- **AI**: OpenAI GPT-3.5 + DALL-E 3
+- **部署**: Cloudflare Workers
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 快速开始
 
-### `npm test`
+### 1. 安装依赖
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+```
 
-### `npm run build`
+### 2. 配置环境变量
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+创建 `.env.local` 文件：
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# 开发环境配置
+REACT_APP_WORKER_URL=https://your-worker.your-subdomain.workers.dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. 启动开发服务器
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Cloudflare Worker 部署
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. 安装 Wrangler CLI
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm install -g wrangler
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 2. 登录 Cloudflare
 
-## Learn More
+```bash
+wrangler login
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. 设置 OpenAI API 密钥
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+wrangler secret put OPENAI_API_KEY --env production
+wrangler secret put OPENAI_API_KEY --env staging
+```
+
+### 4. 部署 Worker
+
+```bash
+# 部署到生产环境
+wrangler deploy --env production
+
+# 部署到测试环境
+wrangler deploy --env staging
+```
+
+### 5. 更新前端配置
+
+部署完成后，更新 `src/lib/cloudflare-api.ts` 中的 `WORKER_URL`：
+
+```typescript
+const WORKER_URL = 'https://your-worker.your-subdomain.workers.dev'
+```
+
+## 项目结构
+
+```
+src/
+├── components/
+│   ├── zen-page.tsx      # 主页面组件
+│   ├── zen-page.css      # 页面样式
+│   ├── input.tsx         # 输入组件
+│   └── interaction.tsx   # 交互组件
+├── lib/
+│   └── cloudflare-api.ts # Cloudflare API 客户端
+├── worker/
+│   └── index.ts          # Cloudflare Worker 源码
+└── App.tsx               # 主应用组件
+```
+
+## API 端点
+
+### 聊天对话
+- **POST** `/chat` - 与 AI 对话
+
+### 图片生成
+- **POST** `/image` - 生成 DALL-E 图片
+
+### 页面内容生成
+- **POST** `/page` - 生成完整的对话页面
+
+## 使用说明
+
+1. 在输入框中输入你的问题或困惑
+2. 点击 "Quest" 按钮
+3. AI 将生成智慧回答和相应的背景图片
+4. 可以继续提问深入探讨
+
+## 自定义配置
+
+### 修改主题颜色
+
+编辑 `src/components/zen-page.css` 中的 CSS 变量：
+
+```css
+:root {
+  --primary-color: #e67e22;
+  --secondary-color: #f39c12;
+  --background-color: #f5f7fa;
+}
+```
+
+### 调整 AI 参数
+
+修改 `src/worker/index.ts` 中的 OpenAI 参数：
+
+```typescript
+{
+  model: 'gpt-3.5-turbo',
+  max_tokens: 1000,
+  temperature: 0.7,
+}
+```
+
+## 部署到生产环境
+
+### 1. 构建应用
+
+```bash
+npm run build
+```
+
+### 2. 部署 Worker
+
+```bash
+wrangler deploy --env production
+```
+
+### 3. 配置域名
+
+在 Cloudflare Dashboard 中配置自定义域名和路由。
+
+## 故障排除
+
+### 常见问题
+
+1. **Worker 部署失败**
+   - 检查 API 密钥是否正确设置
+   - 确认 Wrangler 版本兼容性
+
+2. **图片生成失败**
+   - 验证 OpenAI API 配额
+   - 检查图片生成提示词格式
+
+3. **CORS 错误**
+   - 确认 Worker 的 CORS 头设置
+   - 检查前端域名配置
+
+### 调试模式
+
+启用 Worker 调试日志：
+
+```bash
+wrangler tail --env production
+```
+
+## 贡献指南
+
+1. Fork 项目
+2. 创建功能分支
+3. 提交更改
+4. 推送到分支
+5. 创建 Pull Request
+
+## 许可证
+
+MIT License
+
+## 支持
+
+如有问题，请提交 Issue 或联系开发团队。

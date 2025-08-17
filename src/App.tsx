@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Button, Input, Carousel, Select } from 'antd';
+import { SoundOutlined, GlobalOutlined } from '@ant-design/icons';
 import './App.css';
+import InteractionPage from './components/interaction';
+import DefaultPanel from './components/defaultPanel';
+import H5Navbar from './components/H5Navbar';
+import './components/interaction.css';
 
-function App() {
+const App: React.FC = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [isDefaultPanel, setIsDefaultPanel] = useState(true);
+  
+  const handleQuest = () => {
+    setIsDefaultPanel(false);
+    if (inputValue.trim()) {
+      console.log('Quest submitted:', inputValue);
+      // 这里可以添加实际的提交逻辑
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* 左侧视觉模块 */}
+      <H5Navbar />
+
+      {/* 右侧交互模块 - 使用新的 InteractionPage */}
+      { isDefaultPanel ? (
+        <DefaultPanel
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          handleQuest={handleQuest}
+        />
+      ) : (
+        <InteractionPage title={inputValue} />
+      )}
     </div>
   );
-}
+};
 
 export default App;

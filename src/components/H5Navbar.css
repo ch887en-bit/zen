@@ -1,0 +1,82 @@
+.h5-navbar-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 14px;
+  box-sizing: border-box;
+  display: none;
+  background-color: #0000003d;
+}
+
+/* 汉堡菜单 */
+.hamburger-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  background-image: url('../assets/images/menu.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 中央标题区域 */
+.navbar-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+.chinese-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+  font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.english-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+
+
+/* 响应式设计 */
+@media (max-width: 800px) {
+  .left-panel {
+    padding: 0;
+  }
+  .top-nav {
+    display: none;
+  }
+  .h5-navbar-container {
+    display: block;
+    
+  }
+  
+  .chinese-title {
+    font-size: 28px;
+  }
+  
+  .english-title {
+    font-size: 16px;
+  }
+
+  
+}
+
+
