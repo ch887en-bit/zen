@@ -6,7 +6,7 @@ import DynamicPromptGenerator from '../train/dynamic_prompt_generator'
 import monkImage from '../assets/images/p2.png'
 
 export default function InteractionPage({ title }: { title: string }) {
-  const [isLoading, setIsLoading] = useState(false)
+  // const [isLoading, setIsLoading] = useState(false)
   const [list, setList] = useState<any[]>([])
   const [inputValue, setInputValue] = useState('')
   const promptGenerator = new DynamicPromptGenerator();
@@ -42,7 +42,7 @@ export default function InteractionPage({ title }: { title: string }) {
   }
 
   const handleQuest = async (value: string) => {
-    setIsLoading(true)
+    // setIsLoading(true)
     let newList = []
     newList = [...list, {
       role: 'zen',
@@ -65,7 +65,7 @@ export default function InteractionPage({ title }: { title: string }) {
       },
       ],
     )
-    setIsLoading(false)
+    // setIsLoading(false)
     console.log(res, 'res')
     newList = [...list, {
       role: 'zen',
