@@ -14,11 +14,11 @@ export default function DefaultPanel({
         {/* 欢迎信息 */}
         <div className="welcome-section">
           <div className="welcome-content">
-            <div className="quote-marks">"</div>
+            <div className="quote-marks">&ldquo;</div>
             <p className="welcome-text">
-              Welcome – let's explore what's on your heart today. A gentle invitation to share your worries, hold space, and discover clarity together.
+              Welcome – let&apos;s explore what&apos;s on your heart today. A gentle invitation to share your worries, hold space, and discover clarity together.
             </p>
-            <div className="quote-marks">"</div>
+            <div className="quote-marks">&rdquo;</div>
           </div>
           
           

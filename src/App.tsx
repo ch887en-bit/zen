@@ -16,11 +16,13 @@ const App: React.FC = () => {
       // 这里可以添加实际的提交逻辑
     }
   };
-
+  const handleMenuClick = () => {
+    // setIsDefaultPanel(true);
+  };
   return (
     <div className="app">
       {/* 左侧视觉模块 */}
-      <H5Navbar />
+      <H5Navbar onMenuClick={handleMenuClick} />
 
       {/* 右侧交互模块 - 使用新的 InteractionPage */}
       { isDefaultPanel ? (

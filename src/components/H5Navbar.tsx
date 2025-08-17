@@ -3,17 +3,16 @@ import './H5Navbar.css';
 import { Carousel } from 'antd';
 import MusicPlayer from './MusicPlayer';
 
-interface H5NavbarProps {
-  onMenuClick?: () => void;
-}
 
-const H5Navbar: React.FC<H5NavbarProps> = ({ onMenuClick }) => {
+const H5Navbar: React.FC<any> = ({ onMenuClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState('zh');
 
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
-    onMenuClick?.();
+    if (onMenuClick) {
+      onMenuClick();
+    }
   };
   const quotes = [
     {

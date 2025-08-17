@@ -48,10 +48,11 @@ export class CloudflareAPI {
     // 模拟API响应
     return new Promise((resolve) => {
       setTimeout(() => {
+        const lastMessage = messages[messages.length - 1];
         resolve({
           choices: [{
             message: {
-              content: "这是一个演示回答。当Cloudflare Worker部署完成后，这里将显示真实的AI回答。"
+              content: `这是一个演示回答，回应你的问题："${lastMessage?.content || '未知问题'}"。当Cloudflare Worker部署完成后，这里将显示真实的AI回答。`
             }
           }]
         })

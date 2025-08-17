@@ -13,7 +13,6 @@ export default function InteractionPage({ title }: { title: string }) {
   // 添加 ref 用于滚动
   const pageContentRef = useRef<HTMLDivElement>(null)
   
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     handleQuest(title)
   }, [])
