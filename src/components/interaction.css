@@ -158,6 +158,12 @@
 .monk-image-container img {
   opacity: 0.6;
 }
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
 @media (max-width: 800px) {
   .monk-image-container {
     display: none;
@@ -180,6 +186,7 @@
     width: 65%;
     right: -67px;
     bottom: 28px;
+    display: block;
   }
   .page-header {
     display: none;

@@ -50,7 +50,7 @@ const MusicPlayer: React.FC = () => {
           }
         }}
       >
-        <SoundOutlined />
+        <SoundOutlined style={{ color: '#fff' }} />
       </div>
     </div>
   );

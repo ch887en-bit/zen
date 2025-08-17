@@ -1,14 +1,10 @@
 // lib/cloudflare-api.ts
-const WORKER_URL = 'https://api.laozhang.ai/v1'
+const WORKER_URL = 'https://zen-openai-worker.ch887en.workers.dev'
 
 export class CloudflareAPI {
   static async chat(messages: any[], stream = false) {
     const response = await fetch(`${WORKER_URL}/chat/completions`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer sk-KEva6LAfc6x9bctxE4Cf78788cFe44F4A9D0Be922fFa5a5c`
-      },
       body: JSON.stringify({ messages, stream, model: 'chatgpt-4o-latest', max_tokens: 300, temperature: 0.7 }),
     })
 

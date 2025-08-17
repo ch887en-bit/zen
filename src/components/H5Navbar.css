@@ -1,13 +1,16 @@
 .h5-navbar-container {
   position: relative;
   width: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 14px;
+  padding: 11px 14px;
   box-sizing: border-box;
   display: none;
   background-color: #0000003d;
+}
+.top-nav {
+  color: #fff;
 }
 
 /* 汉堡菜单 */
@@ -26,6 +29,20 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+.hamburger-menu-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hamburger-menu-text .text-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+.hamburger-menu-text .text-subtitle {
+  font-size: 12px;
+  font-weight: 700;
 }
 
 /* 中央标题区域 */
@@ -64,7 +81,8 @@
     display: none;
   }
   .h5-navbar-container {
-    display: block;
+    display: flex;
+    color: #fff;
     
   }
   

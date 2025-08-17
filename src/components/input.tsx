@@ -1,5 +1,6 @@
 import { Button, Input } from "antd";
-
+import { ArrowUpOutlined } from "@ant-design/icons";
+import './input.css'
 export default function CustomeInput({ 
   inputValue,
   setInputValue,
@@ -23,7 +24,8 @@ export default function CustomeInput({
       onClick={handleQuest}
       size="large"
     >
-      Quest
+      <ArrowUpOutlined />
+      <span>Quest</span>
     </Button>
   </div>)
 }

@@ -1,0 +1,20 @@
+.input-section .quest-button .anticon-arrow-up {
+  display: none;
+}
+.input-section .quest-button span {
+  display: block;
+}
+@media (max-width: 800px) {
+  .input-section .quest-button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 100%;
+  }
+  .input-section .quest-button .anticon-arrow-up {
+    display: block;
+  }
+  .input-section .quest-button span {
+    display: none;
+  }
+}

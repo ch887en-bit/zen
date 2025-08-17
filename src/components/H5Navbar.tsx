@@ -46,6 +46,11 @@ const H5Navbar: React.FC<any> = ({ onMenuClick }) => {
       <div className='h5-navbar-container'>
         <div className="hamburger-menu" onClick={handleMenuClick}>
         </div>
+        <div className='hamburger-menu-text'>
+          <div className='text-title'>禅问</div>
+          <div className='text-subtitle'>ZenQuest</div>
+        </div>
+        <div></div>
       </div>
 
       {/* 顶部导航 */}

@@ -4,6 +4,7 @@ import flowerImage from '../assets/images/flower.png'
 import { CloudflareAPI } from '../lib/cloudflare-api'
 import DynamicPromptGenerator from '../train/dynamic_prompt_generator'
 import monkImage from '../assets/images/p2.png'
+import Loading from './loading'
 
 export default function InteractionPage({ title }: { title: string }) {
   // const [isLoading, setIsLoading] = useState(false)
@@ -40,6 +41,7 @@ export default function InteractionPage({ title }: { title: string }) {
   }
 
   const handleQuest = async (value: string) => {
+    console.log('handleQuest', 1)
     // setIsLoading(true)
     let newList = []
     newList = [...list, {
@@ -47,7 +49,10 @@ export default function InteractionPage({ title }: { title: string }) {
       content: value
     },{
       role: 'user',
-      content: '...'
+      content: <div className='flex'>
+        <div>佛祖在思考</div>
+        <Loading />
+      </div>
     }]
     setList(newList)
     const systemPrompt = promptGenerator.generateBuddhistPrompt(value);
@@ -65,20 +70,28 @@ export default function InteractionPage({ title }: { title: string }) {
     )
     // setIsLoading(false)
     // console.log(res, 'res')
-    newList = [...list, {
-      role: 'zen',
-      content: value
-    }, {
-      role: 'user',
-      content: res.choices[0].message.content
-    }]
-    setList(newList)
-    if (value.trim()) {
-      setInputValue('') // 清空输入框
-      
-      // 手动触发滚动到底部
-      setTimeout(scrollToBottom, 150)
+    if (res.choices?.[0]?.message?.content) {
+      newList = [...list, {
+        role: 'zen',
+        content: value
+      }, {
+        role: 'user',
+        content: res.choices[0].message.content
+      }]
+    } else {
+      newList = [...list, {
+        role: 'zen',
+        content: value
+      }, {
+        role: 'user',
+        content: 'something went wrong'
+      }]
     }
+    setList(newList)
+    setInputValue('') // 清空输入框
+    // 手动触发滚动到底部
+    setTimeout(scrollToBottom, 150)
+    
   }
 
   return (
@@ -100,7 +113,7 @@ export default function InteractionPage({ title }: { title: string }) {
             <div className={`bubble-container ${item.role === 'zen' ? 'zen-container' : 'user-container'}`} key={index}>
               {item.role === 'user' && <img src={flowerImage} alt="flow" className="flow-image" />}
               <div key={index} className={`${item.role}-bubble`}>
-                <p>{item.content}</p>
+                <div>{item.content}</div>
               </div>
             </div>  
           ))
