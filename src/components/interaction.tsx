@@ -10,12 +10,11 @@ export default function InteractionPage({ title }: { title: string }) {
   const [list, setList] = useState<any[]>([])
   const [inputValue, setInputValue] = useState('')
   const promptGenerator = new DynamicPromptGenerator();
-  const [titleInner, setTitleInner] = useState('')
+  const [titleInner] = useState(title)
   // 添加 ref 用于滚动
   const pageContentRef = useRef<HTMLDivElement>(null)
   
   useEffect(() => {
-    setTitleInner(title)
     handleQuest(title)
   }, [])
 

@@ -56,8 +56,8 @@ const H5Navbar: React.FC<H5NavbarProps> = ({ onMenuClick }) => {
           <MusicPlayer />
         </div>
         <div className="nav-item-language">
-          <div onClick={() => setLanguage('zh')}>中文</div>
-          <div onClick={() => setLanguage('en')}>EN</div>
+          <div className={language === 'zh' ? 'active' : ''} onClick={() => setLanguage('zh')}>中文</div>
+          <div className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</div>
         </div>
       </div>
 
