@@ -1,45 +1,54 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './H5Navbar.css';
 import { Carousel } from 'antd';
 import MusicPlayer from './MusicPlayer';
-
+import Modal from './Modal';
+import Lang from './lang';
 
 const H5Navbar: React.FC<any> = ({ onMenuClick }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('zh');
+  const { t, i18n } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleMenuClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsModalOpen(true);
     if (onMenuClick) {
       onMenuClick();
     }
   };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // 构建quotes数组，使用展平后的键名
   const quotes = [
     {
-      text: "善恶之报，如影随形。",
-      author: "行善积德，福泽自来。"
+      text: t('quotes.item1.text'),
+      author: t('quotes.item1.author')
     },
     {
-      text: "人生的苦，源于欲望无穷。",
-      author: "知足常乐，方能解脱。"
+      text: t('quotes.item2.text'),
+      author: t('quotes.item2.author')
     },
     {
-      text: "心宽一寸，路宽一丈",
-      author: "心若计较，处处烦恼"
+      text: t('quotes.item3.text'),
+      author: t('quotes.item3.author')
     },
     {
-      text: "万物无常，瞬息万变",
-      author: "珍惜当下，方不负此生"
+      text: t('quotes.item4.text'),
+      author: t('quotes.item4.author')
     },
     {
-      text: "嗔怒如火，烧毁善根。",
-      author: "心平气和，方得安宁"
+      text: t('quotes.item5.text'),
+      author: t('quotes.item5.author')
     },
     {
-      text: "人生如戏，戏如人生",
-      author: "莫被表象所迷惑,应洞察其本质"
-    },
+      text: t('quotes.item6.text'),
+      author: t('quotes.item6.author')
+    }
   ];
+
   return (
     <div className="left-panel">
       {/* 左侧汉堡菜单 */}
@@ -47,8 +56,7 @@ const H5Navbar: React.FC<any> = ({ onMenuClick }) => {
         <div className="hamburger-menu" onClick={handleMenuClick}>
         </div>
         <div className='hamburger-menu-text'>
-          <div className='text-title'>禅问</div>
-          <div className='text-subtitle'>ZenQuest</div>
+          <div className='text-title'>{t('brand.title')}</div>
         </div>
         <div></div>
       </div>
@@ -56,40 +64,35 @@ const H5Navbar: React.FC<any> = ({ onMenuClick }) => {
       {/* 顶部导航 */}
       <div className="top-nav">
         <div className="nav-item">
-          {/* 替换原有的Music按钮为MusicPlayer组件 */}
           <MusicPlayer />
-        </div>
-        <div className="nav-item-language">
-          <div className={language === 'zh' ? 'active' : ''} onClick={() => setLanguage('zh')}>中文</div>
-          <div className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</div>
+          <Lang />
         </div>
       </div>
 
-        {/* 主要内容区域 */}
-        <div className="main-content">
-          {/* 品牌标题 */}
-          <div className="brand-section">
-            <h1 className="main-title">禅问。</h1>
-            <h2 className="subtitle">ZenQuest</h2>
-            <p className="tagline">
-              Clear answers to everything you ask - through a Buddhist lens.
-            </p>
-          </div>
+      {/* 主要内容区域 */}
+      <div className="main-content">
+        {/* 品牌标题 */}
+        <div className="brand-section">
+          <h1 className="main-title">{t('brand.title')}</h1>
+          <p className="tagline">{t('brand.tagline')}</p>
         </div>
+      </div>
 
-        {/* 底部引用 */}
-        <div className="quote-section">
-          <div className="quote-section-title">佛说</div>
-          <Carousel autoplay speed={1000} dots={{ className: 'custom-dots' }}>
-            {quotes.map((quote, index) => (
-              <div key={index} className="quote-item">
-                <p className="quote-text">{quote.text}</p>
-                <p className="quote-author">{quote.author}</p>
-              </div>
-            ))}
-          </Carousel>
-        </div>
-
+      {/* 底部引用 */}
+      <div className="quote-section">
+        <div className="quote-section-title">{t('quotes.title')}</div>
+        <Carousel speed={1000} dots={{ className: 'custom-dots' }}>
+          {quotes.map((quote, index) => (
+            <div key={index} className="quote-item">
+              <p className="quote-text">{quote.text}{quote.author}</p>
+              {/* <p className="quote-author">{quote.author}</p> */}
+            </div>
+          ))}
+        </Carousel>
+      </div>
+      
+      {/* 弹窗 */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };

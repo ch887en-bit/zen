@@ -1,13 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next';
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import CustomeInput from './input'
 import flowerImage from '../assets/images/flower.png'
 import { CloudflareAPI } from '../lib/cloudflare-api'
 import DynamicPromptGenerator from '../train/dynamic_prompt_generator'
 import monkImage from '../assets/images/p2.png'
+import monkImage2 from '../assets/images/p3.png'
 import Loading from './loading'
 
 export default function InteractionPage({ title }: { title: string }) {
-  // const [isLoading, setIsLoading] = useState(false)
+  const { t, i18n } = useTranslation();
+  const [isLoading, setIsLoading] = useState(false)
   const [list, setList] = useState<any[]>([])
   const [inputValue, setInputValue] = useState('')
   const promptGenerator = new DynamicPromptGenerator();
@@ -42,7 +47,7 @@ export default function InteractionPage({ title }: { title: string }) {
 
   const handleQuest = async (value: string) => {
     console.log('handleQuest', 1)
-    // setIsLoading(true)
+    setIsLoading(true)
     let newList = []
     newList = [...list, {
       role: 'zen',
@@ -50,17 +55,18 @@ export default function InteractionPage({ title }: { title: string }) {
     },{
       role: 'user',
       content: <div className='flex'>
-        <div>佛祖在思考</div>
+        <div>{t('interaction.thinking')}</div>
         <Loading />
       </div>
     }]
     setList(newList)
-    const systemPrompt = promptGenerator.generateBuddhistPrompt(value);
+    let systemPrompt = promptGenerator.generateBuddhistPrompt(value);
+    systemPrompt = `${systemPrompt} ${i18n.language === 'zh' ? '用中文回答' : '用英文回答'}`
     const res = await CloudflareAPI.chat(
       [
         {
           role: 'user',
-          content: value
+          content: `${value}`
         },
         {
           role: 'system',
@@ -68,7 +74,7 @@ export default function InteractionPage({ title }: { title: string }) {
       },
       ],
     )
-    // setIsLoading(false)
+    setIsLoading(false)
     // console.log(res, 'res')
     if (res.choices?.[0]?.message?.content) {
       newList = [...list, {
@@ -76,7 +82,9 @@ export default function InteractionPage({ title }: { title: string }) {
         content: value
       }, {
         role: 'user',
-        content: res.choices[0].message.content
+        content: <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {res.choices[0].message.content}
+      </ReactMarkdown>
       }]
     } else {
       newList = [...list, {
@@ -84,7 +92,7 @@ export default function InteractionPage({ title }: { title: string }) {
         content: value
       }, {
         role: 'user',
-        content: 'something went wrong'
+        content: i18n.language === 'zh' ? t('interaction.somethingWrong') : t('interaction.somethingWrongEn')
       }]
     }
     setList(newList)
@@ -126,7 +134,7 @@ export default function InteractionPage({ title }: { title: string }) {
         <p className="hint-text">- Clear your mind, pursue your quest -</p>
       </div>
       <div className="monk-image-container">
-        <img src={monkImage} alt="monk" className="monk-image" />
+        <img src={!isLoading ? monkImage2 : monkImage} alt="monk" className="monk-image" />
       </div>
     </div>
   )

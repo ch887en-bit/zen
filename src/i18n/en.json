@@ -1,0 +1,36 @@
+{
+  "brand.title": "Buddha's Words & Zen Questions.",
+  "brand.tagline": "With the blessing of modern technology, Buddhist classics illuminate the hearts of more people.",
+  
+  "nav.music": "Music",
+  "nav.musicOn": "Music On",
+  "nav.musicOff": "Music Off",
+  "nav.language": "Language",
+  "nav.chinese": "中文",
+  "nav.english": "EN",
+  
+  "quotes.title": "Buddha Says",
+  "quotes.item1.text": "All conditioned things are like dreams, illusions, bubbles, and shadows, ",
+  "quotes.item1.author": "like dew or a flash of lightning. Thus should we perceive them.",
+  "quotes.item2.text": "We are what we think. All that we are arises with our thoughts.",
+  "quotes.item2.author": "With pure thoughts, happiness follows like a shadow that never leaves.",
+  "quotes.item3.text": "The mind is like still water. When not stirred by the winds of desire and anger, ",
+  "quotes.item3.author": "it reflects the true nature of all things.",
+  "quotes.item4.text": "Let go of attachment to the self, just as one would pluck the autumn lotus by hand.",
+  "quotes.item4.author": "Only then can one see the true path.",
+  "quotes.item5.text": "The fragrance of virtue travels even against the wind,",
+  "quotes.item5.author": "reaching the ends of the world.",
+  "quotes.item6.text": "Perform actions that you will never regret, ",
+  "quotes.item6.author": "actions that will ripen into future joy and delight.",
+  
+  "interaction.welcomeText": "Welcome – let's explore what's on your heart today. ",
+  "interaction.thinking": "Buddha is thinking",
+  "interaction.somethingWrong": "Something went wrong",
+  
+  "actions.share": "Share",
+  "actions.quest": "Quest",
+  "actions.close": "Close",
+  "interaction.placeholder": "What is on my mind today?",
+  "interaction.welcomeSubtext": "A gentle invitation to share your worries, hold space, and discover clarity together.",
+  "interaction.quest": "Quest"
+}

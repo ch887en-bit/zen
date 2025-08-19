@@ -1,6 +1,7 @@
-import { Button, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import './input.css'
+import { useTranslation } from "react-i18next";
 export default function CustomeInput({ 
   inputValue,
   setInputValue,
@@ -10,22 +11,26 @@ export default function CustomeInput({
   setInputValue: (value: string) => void,
   handleQuest: () => void
  }) {
+  const { t } = useTranslation();
   
   return (<div className="input-section">
-    <Input
-      placeholder="What is on my mind today?"
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-      className="quest-input"
-    />
-    <Button
-      type="primary"
-      className="quest-button"
-      onClick={handleQuest}
-      size="large"
-    >
-      <ArrowUpOutlined />
-      <span>Quest</span>
-    </Button>
+    <Form>
+      <Input
+        placeholder={t('interaction.placeholder')}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        className="quest-input"
+      />
+      <Button
+        type="primary"
+        className="quest-button"
+        onClick={handleQuest}
+        size="large"
+        htmlType="submit"
+      >
+        <ArrowUpOutlined />
+        <span>{t('actions.quest')}</span>
+      </Button>
+    </Form>
   </div>)
 }

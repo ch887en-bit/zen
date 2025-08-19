@@ -11,11 +11,21 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-size: 18px;
-  color: #333;
+  margin-right: 10px;
+  /* color: #fff; */
 }
 
 .music-control-button:hover {
   transform: scale(1.1);
+}
+.music-control-button .music-text {
+  font-size: 14px;
+  margin-right: 4px;
+  color: #fff;
+}
+.icon-music {
+  width: 16px;
+  height: 16px;
 }
 
 

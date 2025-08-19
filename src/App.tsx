@@ -4,6 +4,7 @@ import InteractionPage from './components/interaction';
 import DefaultPanel from './components/defaultPanel';
 import H5Navbar from './components/H5Navbar';
 import './components/interaction.css';
+import './i18n'; // 导入i18n配置
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState('');

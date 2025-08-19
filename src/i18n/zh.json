@@ -1,0 +1,37 @@
+{
+  "brand.title": "佛说&禅问",
+  "brand.tagline": "在现代科技加持下，使用佛教经典为更多人点亮心灯。",
+  
+  "nav.music": "音乐",
+  "nav.musicOn": "音乐开启",
+  "nav.musicOff": "音乐关闭",
+  "nav.language": "语言",
+  "nav.chinese": "中文",
+  "nav.english": "EN",
+  
+  "quotes.title": "佛说",
+  "quotes.item1.text": "一切有为法，如梦幻泡影，",
+  "quotes.item1.author": "如露亦如电，应作如是观。",
+  "quotes.item2.text": "我们的思想塑造了我们自身。我们的一切皆源于思想。",
+  "quotes.item2.author": "心若纯净，幸福便如影随形。",
+  "quotes.item3.text": "心若止水，不被贪嗔之风搅动时，",
+  "quotes.item3.author": "方能映照万物本真。",
+  "quotes.item4.text": "放下对自我的执着，如同亲手摘下秋莲。",
+  "quotes.item4.author": "唯有如此，方能得见真道。",
+  "quotes.item5.text": "美德之香逆风飘散",
+  "quotes.item5.author": "远至世界尽头 。",
+  "quotes.item6.text": "行事当无悔，",
+  "quotes.item6.author": "其果必生喜。",
+  
+  "interaction.welcome": "欢迎",
+  "interaction.welcomeText": "欢迎您的到来。让我们一同探寻你今日心中所想。",
+  "interaction.thinking": "正在思考中",
+  "interaction.somethingWrong": "出错了",
+  
+  "actions.share": "分享",
+  "actions.quest": "探索",
+  "actions.close": "关闭",
+  "interaction.placeholder": "今天你有什么烦恼？",
+  "interaction.welcomeSubtext": "一个温柔的邀请，分享你的担忧，保持空间，一起发现清晰。",
+  "interaction.quest": "发送"
+}

@@ -1,11 +1,15 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { SoundOutlined } from '@ant-design/icons';
 import './MusicPlayer.css';
+import volumeDown from '../assets/images/volume-down.svg';
+import volumeUp from '../assets/images/volume-up.svg';
+import { useTranslation } from 'react-i18next';
 
 const MusicPlayer: React.FC = () => {
 
-  
+  const [isPlaying, setIsPlaying] = useState(false); // 初始状态为未播放
   const audioRef = useRef<HTMLAudioElement>(null);
+  const { t } = useTranslation();
   
   // 当前音乐（只有一首）
   const currentMusic = {
@@ -21,10 +25,12 @@ const MusicPlayer: React.FC = () => {
 
   }, []);
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-  }, []);
+  // 移除自动播放的useEffect
+  // useEffect(() => {
+  //   const audio = audioRef.current;
+  //   audio?.play();
+  //   setIsPlaying(true);
+  // }, []);
 
 
   return (
@@ -45,12 +51,15 @@ const MusicPlayer: React.FC = () => {
           if (!audio) return;
           if (audio.paused) {
             audio.play();
+            setIsPlaying(true);
           } else {
             audio.pause();
+            setIsPlaying(false);
           }
         }}
       >
-        <SoundOutlined style={{ color: '#fff' }} />
+        <div className={'music-text'}>{isPlaying ? t('nav.musicOn') : t('nav.musicOff') }</div>
+        <img src={!isPlaying ? volumeUp : volumeDown} alt="volume-up" className={'icon-music'} />
       </div>
     </div>
   );

@@ -1,5 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import CustomeInput from "./input";
 import monkImage from '../assets/images/p1.png';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
+
 export default function DefaultPanel({
   inputValue,
   setInputValue,
@@ -9,19 +13,20 @@ export default function DefaultPanel({
   setInputValue: (value: string) => void,
   handleQuest: () => void
 }) {
+  const { t, i18n } = useTranslation();
+  
   return (
     <div className="right-panel">
         {/* 欢迎信息 */}
         <div className="welcome-section">
           <div className="welcome-content">
-            <div className="quote-marks">&ldquo;</div>
-            <p className="welcome-text">
-              Welcome – let&apos;s explore what&apos;s on your heart today. A gentle invitation to share your worries, hold space, and discover clarity together.
-            </p>
-            <div className="quote-marks">&rdquo;</div>
+          <blockquote>
+            <span className="quote-marks">“</span>
+            <div className="welcome-text">{t('interaction.welcomeText')}</div>
+            <p>{t('interaction.welcomeSubtext')}</p>
+          </blockquote>
+          
           </div>
-          
-          
         </div>
 
         <div className="input-section-monk">

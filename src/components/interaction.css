@@ -171,6 +171,32 @@
   justify-content: flex-start;
   gap: 10px;
 }
+.user-bubble blockquote {
+  position: relative;
+  padding-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #CD4B00;
+}
+.user-bubble p {
+  margin-bottom: 5px;
+  list-style: none;
+}
+.user-bubble li {
+  margin-bottom: 5px;
+  list-style: none;
+}
+.user-bubble blockquote ::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  width: 4px;
+  background-color: #CD4B004D;
+  opacity: 0.3;
+  border-radius: 4px;
+}
 @media (max-width: 800px) {
   .monk-image-container {
     display: none;

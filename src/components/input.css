@@ -4,6 +4,13 @@
 .input-section .quest-button span {
   display: block;
 }
+.ant-form.ant-form-horizontal {
+  display: flex;
+  width: 100%;
+}
+.ant-form .ant-input {
+  flex: 1;
+}
 @media (max-width: 800px) {
   .input-section .quest-button {
     width: 36px;

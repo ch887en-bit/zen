@@ -1,5 +1,5 @@
 // lib/cloudflare-api.ts
-const WORKER_URL = 'https://zen-openai-worker.ch887en.workers.dev'
+const WORKER_URL = 'https://api.zen-quest.org'
 
 export class CloudflareAPI {
   static async chat(messages: any[], stream = false) {
