@@ -1,6 +1,6 @@
 {
-  "brand.title": "Buddha's Words & Zen Questions.",
-  "brand.tagline": "With the blessing of modern technology, Buddhist classics illuminate the hearts of more people.",
+  "brand.title": "Zen Quest",
+  "brand.tagline": "buddhist classic enlighten the minds of more people",
   
   "nav.music": "Music",
   "nav.musicOn": "Music On",
@@ -9,7 +9,7 @@
   "nav.chinese": "中文",
   "nav.english": "EN",
   
-  "quotes.title": "Buddha Says",
+  "quotes.title": "Zen Quest",
   "quotes.item1.text": "All conditioned things are like dreams, illusions, bubbles, and shadows, ",
   "quotes.item1.author": "like dew or a flash of lightning. Thus should we perceive them.",
   "quotes.item2.text": "We are what we think. All that we are arises with our thoughts.",
@@ -24,13 +24,13 @@
   "quotes.item6.author": "actions that will ripen into future joy and delight.",
   
   "interaction.welcomeText": "Welcome – let's explore what's on your heart today. ",
-  "interaction.thinking": "Buddha is thinking",
+  "interaction.thinking": "little monk is thinking",
   "interaction.somethingWrong": "Something went wrong",
   
   "actions.share": "Share",
   "actions.quest": "Quest",
   "actions.close": "Close",
   "interaction.placeholder": "What is on my mind today?",
-  "interaction.welcomeSubtext": "A gentle invitation to share your worries, hold space, and discover clarity together.",
+  "interaction.welcomeSubtext": "a gentle invitation to unburden worries,dwell in shared stillness, and discover clarity together.",
   "interaction.quest": "Quest"
 }
