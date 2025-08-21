@@ -12,7 +12,7 @@ i18n
       zh: { translation: zh },
       en: { translation: en }
     },
-    fallbackLng: 'zh',
+    fallbackLng: 'en', // 改为英文作为默认语言
     debug: false,
     
     interpolation: {
