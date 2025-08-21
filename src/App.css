@@ -99,11 +99,13 @@ body {
 }
 
 .tagline {
+  margin-top: 10px;
   font-size: 16px;
   color: #46379D;
   font-weight: 400;
   line-height: 24px;
   font-family: 'Roboto';
+  width: 52%;
 }
 
 /* 底部引用 */
@@ -247,7 +249,6 @@ body {
 .monk-image {
   width: 100%;
   display: block;
-  opacity: 0.3;
 }
 .input-section-container .monk-illustration {
   display: none;
@@ -309,8 +310,8 @@ body {
 .input-section-monk .monk-illustration {
   position: absolute;
   bottom: 28px;
-  right: -50px;
-  width: 50%;
+  right: 0px;
+  width: 35%;
   z-index: 0;
 }
 
@@ -338,7 +339,7 @@ body {
   .input-section-monk .monk-illustration {
     position: absolute;
     width: 65%;
-    right: -67px;
+    right: -30px;
     bottom: 28px;
     display: block;
   }

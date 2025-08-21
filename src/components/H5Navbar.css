@@ -65,6 +65,7 @@
 }
 .nav-item-language .lng.active {
   font-weight: 600;
+  opacity: 1;
 }
 
 /* 响应式设计 */

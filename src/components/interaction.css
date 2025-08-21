@@ -144,13 +144,12 @@
 .monk-image-container {
   position: fixed;
   bottom: 0px;
-  right: 0px;
-  width: 400px;
-  opacity: 0.8;
+  right: 20px;
+  width: 320px;
 }
 .input-section-container {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   left: 32px;
   right: 32px;
   bottom: 32px;
@@ -161,9 +160,6 @@
   font-weight: 400;
   color: #89837D;
   margin-top: 10px;
-}
-.monk-image-container img {
-  opacity: 0.6;
 }
 .flex {
   display: flex;
@@ -202,7 +198,7 @@
     display: none;
   }
   .page-content {
-    height: calc(100vh - 300px);
+    height: calc(100vh - 320px);
   }
   .input-section-container {
     position: fixed;
@@ -216,8 +212,8 @@
   }
   .input-section-container .monk-illustration {
     position: absolute;
-    width: 65%;
-    right: -67px;
+    width: 72%;
+    right: -30px;
     bottom: 28px;
     display: block;
   }

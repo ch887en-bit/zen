@@ -80,12 +80,11 @@ const H5Navbar: React.FC<any> = ({ onMenuClick }) => {
 
       {/* 底部引用 */}
       <div className="quote-section">
-        <div className="quote-section-title">{t('quotes.title')}</div>
         <Carousel speed={1000} dots={{ className: 'custom-dots' }}>
           {quotes.map((quote, index) => (
             <div key={index} className="quote-item">
-              <p className="quote-text">{quote.text}{quote.author}</p>
-              {/* <p className="quote-author">{quote.author}</p> */}
+              <p className="quote-text">{quote.text}</p>
+              <p className="quote-author">--{quote.author}</p>
             </div>
           ))}
         </Carousel>
